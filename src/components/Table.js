@@ -5,16 +5,30 @@ import { Search, Columns, Filter, Trash, Upload, Info } from './Icons';
 
 import data from '../data.json';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Table() {
   // pagination
   const [resultsPerPage, setResultsPerPage] = useState(10);
   const [currentPage, setCurrentPage] = useState(1);
+  const [currentItems, setCurrentItems] = useState([]);
 
-  const indexOfLastItem = currentPage * resultsPerPage;
-  const indexOfFirstItem = indexOfLastItem - resultsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  //sort
+  const [sorted, setSorted] = useState(false);
+
+  useEffect(() => {
+    const indexOfLastItem = currentPage * resultsPerPage;
+    const indexOfFirstItem = indexOfLastItem - resultsPerPage;
+    const descendingSortedItems = data
+      .slice(indexOfFirstItem, indexOfLastItem)
+      .sort((a, b) => b.version - a.version);
+    const ascendingSortedItems = data
+      .slice(indexOfFirstItem, indexOfLastItem)
+      .sort((a, b) => a.version - b.version);
+
+    if (sorted) setCurrentItems(ascendingSortedItems);
+    else setCurrentItems(descendingSortedItems);
+  }, [sorted, currentPage, resultsPerPage]);
 
   // checkbox
   const [checkedAll, setCheckedAll] = useState(false);
@@ -133,7 +147,11 @@ export default function Table() {
                   checked={checkedAll}
                 />
               </Styled.TableHeader>
-              <Styled.TableHeader className="version">
+              <Styled.TableHeader
+                className="version"
+                sorted={sorted}
+                onClick={() => setSorted(!sorted)}
+              >
                 Version
               </Styled.TableHeader>
               <Styled.TableHeader>Status</Styled.TableHeader>

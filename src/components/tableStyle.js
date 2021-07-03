@@ -131,8 +131,12 @@ export const TableHeader = styled.th`
     ::after {
       content: '';
       border-style: solid;
-      border-width: 0.5rem 0.5rem 0 0.5rem;
-      border-color: black transparent transparent transparent;
+      border-width: ${({ sorted }) =>
+        sorted ? '0 0.5rem 0.5rem 0.5rem' : '0.5rem 0.5rem 0 0.5rem'};
+      border-color: ${({ sorted }) =>
+        sorted
+          ? 'transparent transparent black transparent'
+          : 'black transparent transparent transparent'};
       display: inline-block;
       margin-left: 0.5rem;
       margin-bottom: 0.1rem;
