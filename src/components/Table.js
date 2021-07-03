@@ -1,5 +1,6 @@
 import * as Styled from './tableStyle';
 
+import Pagination from './Pagination';
 import { Search, Columns, Filter, Trash, Upload, Info } from './Icons';
 
 import data from '../data.json';
@@ -80,7 +81,9 @@ export default function Table() {
         </Styled.TableCell>
         <Styled.TableCell>{version}</Styled.TableCell>
         <Styled.TableCell>
-          <span className={status === 'Published' ? 'bold' : ''}>{status}</span>
+          <span className={status === 'Published' ? 'bold' : null}>
+            {status}
+          </span>
         </Styled.TableCell>
         <Styled.TableCell>{doctype}</Styled.TableCell>
         <Styled.TableCell>{formatDate(datecreated)}</Styled.TableCell>
@@ -162,6 +165,12 @@ export default function Table() {
               <option value="50">50</option>
             </select>
           </Styled.Wrapper>
+          <Pagination
+            resultsPerPage={resultsPerPage}
+            totalItems={data.length}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </Styled.Wrapper>
       </Styled.Wrapper>
     </Styled.Container>

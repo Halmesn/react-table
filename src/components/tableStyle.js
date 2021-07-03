@@ -37,6 +37,8 @@ export const Wrapper = styled.div`
 
   &.pagination {
     font-size: 1.5rem;
+    display: flex;
+    justify-content: space-between;
   }
 
   &.results-per-page {

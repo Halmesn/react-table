@@ -2,7 +2,6 @@ export const Search = () => (
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
     data-icon="search"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +15,6 @@ export const Columns = () => (
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
     data-icon="columns"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +31,6 @@ export const Filter = () => (
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
     data-icon="filter"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +47,6 @@ export const Trash = () => (
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="far"
     data-icon="trash-alt"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +63,6 @@ export const Upload = () => (
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
     data-icon="file-upload"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +79,6 @@ export const Info = () => (
   <svg
     aria-hidden="true"
     focusable="false"
-    data-prefix="fas"
     data-icon="info-circle"
     role="img"
     xmlns="http://www.w3.org/2000/svg"
@@ -93,6 +87,38 @@ export const Info = () => (
     <path
       fill="currentColor"
       d="M256 8C119.043 8 8 119.083 8 256c0 136.997 111.043 248 248 248s248-111.003 248-248C504 119.083 392.957 8 256 8zm0 110c23.196 0 42 18.804 42 42s-18.804 42-42 42-42-18.804-42-42 18.804-42 42-42zm56 254c0 6.627-5.373 12-12 12h-88c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h12v-64h-12c-6.627 0-12-5.373-12-12v-24c0-6.627 5.373-12 12-12h64c6.627 0 12 5.373 12 12v100h12c6.627 0 12 5.373 12 12v24z"
+    ></path>
+  </svg>
+);
+
+export const Previous = () => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    data-icon="angle-left"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 512"
+  >
+    <path
+      fill="currentColor"
+      d="M31.7 239l136-136c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9L127.9 256l96.4 96.4c9.4 9.4 9.4 24.6 0 33.9L201.7 409c-9.4 9.4-24.6 9.4-33.9 0l-136-136c-9.5-9.4-9.5-24.6-.1-34z"
+    ></path>
+  </svg>
+);
+
+export const Next = () => (
+  <svg
+    aria-hidden="true"
+    focusable="false"
+    data-icon="angle-right"
+    role="img"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 256 512"
+  >
+    <path
+      fill="currentColor"
+      d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"
     ></path>
   </svg>
 );
