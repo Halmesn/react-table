@@ -20,6 +20,8 @@ export default function Table() {
   const [checkedItems, setCheckedItems] = useState(() => {
     const entries = new Map();
     currentItems.forEach(({ id }) => entries.set(id, false));
+    // Map is easier to manipulate but React can't track the update inside,
+    // So I converted it to Object here
     const items = Object.fromEntries(entries);
 
     return items;
@@ -31,7 +33,7 @@ export default function Table() {
   };
 
   const onItemCheck = (isCheckAll, isIndividualCheck, checkedItem) => {
-    let checkedItemsCopy = { ...checkedItems };
+    const checkedItemsCopy = { ...checkedItems };
     const isChecked = checkedItems[checkedItem];
 
     // condition check - whether the change is coming from check all or individual check
