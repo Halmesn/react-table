@@ -22,6 +22,7 @@ export default function Table() {
   useEffect(() => {
     const indexOfLastItem = currentPage * resultsPerPage;
     const indexOfFirstItem = indexOfLastItem - resultsPerPage;
+    let keywordResults;
 
     const descendingSortedItems = data
       .slice(indexOfFirstItem, indexOfLastItem)
@@ -31,7 +32,7 @@ export default function Table() {
       .sort((a, b) => a.version - b.version);
 
     if (searchInput) {
-      const keywordResults = data
+      keywordResults = data
         .filter((item) => {
           const values = Object.values(item);
           return values.some((value) =>
@@ -44,7 +45,14 @@ export default function Table() {
       setCurrentItems(keywordResults);
     } else setCurrentItems(descendingSortedItems);
 
-    if (sorted) setCurrentItems(ascendingSortedItems);
+    if (sorted) {
+      if (keywordResults) {
+        const ascendingSearchItems = keywordResults.sort(
+          (a, b) => a.version - b.version
+        );
+        setCurrentItems(ascendingSearchItems);
+      } else setCurrentItems(ascendingSortedItems);
+    }
   }, [sorted, currentPage, resultsPerPage, searchInput]);
 
   // checkbox
