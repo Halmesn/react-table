@@ -41,11 +41,7 @@ export default function Pagination({
   };
 
   const onNextClick = () => {
-    if (
-      currentPage === pageNumbers.length - 1 ||
-      currentPage === pageNumbers.length
-    )
-      return;
+    if (currentPage === pageNumbers.length) return;
 
     setCurrentPage(currentPage + 1);
 
@@ -69,12 +65,7 @@ export default function Pagination({
         {renderedPagination}
         <Styled.ListItem
           onClick={() => onNextClick()}
-          className={
-            currentPage === pageNumbers.length - 1 ||
-            currentPage === pageNumbers.length
-              ? 'disabled'
-              : null
-          }
+          className={currentPage === pageNumbers.length ? 'disabled' : null}
         >
           <a href="/#">
             <Next />
