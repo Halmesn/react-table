@@ -8,6 +8,65 @@ export const Container = styled.div`
   }
 
   width: 100rem;
+
+  @media only screen and (max-width: 760px) {
+    width: 100%;
+
+    table,
+    thead,
+    tbody,
+    th,
+    td,
+    tr {
+      display: block;
+    }
+
+    thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+
+    tr {
+      border: 1px solid #ccc;
+    }
+
+    td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 50%;
+    }
+
+    td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 45%;
+      padding-right: 10px;
+      white-space: nowrap;
+    }
+
+    /* Label the data */
+    td:nth-of-type(1):before {
+      content: 'Select';
+    }
+    td:nth-of-type(2):before {
+      content: 'Version';
+    }
+    td:nth-of-type(3):before {
+      content: 'Status';
+    }
+    td:nth-of-type(4):before {
+      content: 'Document Type';
+    }
+    td:nth-of-type(5):before {
+      content: 'Date Created';
+    }
+    td:nth-of-type(6):before {
+      content: 'Actions';
+    }
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -39,6 +98,10 @@ export const Wrapper = styled.div`
     font-size: 1.5rem;
     display: flex;
     justify-content: space-between;
+
+    @media only screen and (max-width: 760px) {
+      font-size: 1.2rem;
+    }
   }
 
   &.results-per-page {
@@ -52,6 +115,11 @@ export const Wrapper = styled.div`
       font-size: 1.2rem;
       padding: 0.3rem;
       border-radius: 0.5rem;
+
+      @media only screen and (max-width: 760px) {
+        margin-left: -0.2rem;
+        padding: 0rem;
+      }
     }
   }
 `;
@@ -95,8 +163,16 @@ export const Table = styled.table`
   border-collapse: collapse;
   margin-bottom: 1rem;
 
+  @media only screen and (max-width: 760px) {
+    font-size: 1.3rem;
+  }
+
   .actions {
     text-align: right;
+
+    @media only screen and (max-width: 760px) {
+      text-align: left;
+    }
   }
 `;
 

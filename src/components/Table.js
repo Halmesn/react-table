@@ -124,7 +124,7 @@ export default function Table() {
           <input
             type="checkbox"
             onChange={() => onItemCheck(false, true, id)}
-            checked={checkedItems[id]}
+            checked={checkedItems[id] ?? false}
           />
         </Styled.TableCell>
         <Styled.TableCell>{version}</Styled.TableCell>

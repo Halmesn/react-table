@@ -14,6 +14,10 @@ export const ListItem = styled.li`
   background: #e5e5e5;
   cursor: pointer;
 
+  @media only screen and (max-width: 760px) {
+    padding: 0.4rem 0.4rem;
+  }
+
   &.active {
     background: black;
     color: #e5e5e5;
