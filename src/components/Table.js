@@ -16,9 +16,13 @@ export default function Table() {
   //sort
   const [sorted, setSorted] = useState(false);
 
+  // search
+  const [searchInput, setSearchInput] = useState('');
+
   useEffect(() => {
     const indexOfLastItem = currentPage * resultsPerPage;
     const indexOfFirstItem = indexOfLastItem - resultsPerPage;
+
     const descendingSortedItems = data
       .slice(indexOfFirstItem, indexOfLastItem)
       .sort((a, b) => b.version - a.version);
@@ -26,9 +30,22 @@ export default function Table() {
       .slice(indexOfFirstItem, indexOfLastItem)
       .sort((a, b) => a.version - b.version);
 
+    if (searchInput) {
+      const keywordResults = data
+        .filter((item) => {
+          const values = Object.values(item);
+          return values.some((value) =>
+            value.toString().toLowerCase().includes(searchInput.toLowerCase())
+          );
+        })
+        .sort((a, b) => b.version - a.version)
+        .slice(indexOfFirstItem, indexOfLastItem);
+
+      setCurrentItems(keywordResults);
+    } else setCurrentItems(descendingSortedItems);
+
     if (sorted) setCurrentItems(ascendingSortedItems);
-    else setCurrentItems(descendingSortedItems);
-  }, [sorted, currentPage, resultsPerPage]);
+  }, [sorted, currentPage, resultsPerPage, searchInput]);
 
   // checkbox
   const [checkedAll, setCheckedAll] = useState(false);
@@ -124,7 +141,11 @@ export default function Table() {
         <Styled.Wrapper className="utility">
           <Styled.SearchBar>
             <Search />
-            <Styled.SearchInput placeholder="Search table" />
+            <Styled.SearchInput
+              placeholder="Search table"
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+            />
           </Styled.SearchBar>
 
           <Styled.Utility>
