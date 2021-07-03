@@ -14,7 +14,7 @@ export default function Pagination({
   const [minPageLimit, setMinPageLimit] = useState(0);
 
   const pageNumbers = [];
-  const totalPages = Math.ceil(totalItems / resultsPerPage);
+  const totalPages = Math.ceil(totalItems / resultsPerPage) || 1;
   for (let i = 1; i <= totalPages; i++) pageNumbers.push(i);
 
   const renderedPagination = pageNumbers.map((number) =>
@@ -41,7 +41,11 @@ export default function Pagination({
   };
 
   const onNextClick = () => {
-    if (currentPage === pageNumbers.length - 1) return;
+    if (
+      currentPage === pageNumbers.length - 1 ||
+      currentPage === pageNumbers.length
+    )
+      return;
 
     setCurrentPage(currentPage + 1);
 
@@ -65,7 +69,12 @@ export default function Pagination({
         {renderedPagination}
         <Styled.ListItem
           onClick={() => onNextClick()}
-          className={currentPage === pageNumbers.length - 1 ? 'disabled' : null}
+          className={
+            currentPage === pageNumbers.length - 1 ||
+            currentPage === pageNumbers.length
+              ? 'disabled'
+              : null
+          }
         >
           <a href="/#">
             <Next />

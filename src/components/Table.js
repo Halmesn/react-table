@@ -18,11 +18,12 @@ export default function Table() {
 
   // search
   const [searchInput, setSearchInput] = useState('');
+  const [searchResults, setSearchResults] = useState([]);
 
   useEffect(() => {
     const indexOfLastItem = currentPage * resultsPerPage;
     const indexOfFirstItem = indexOfLastItem - resultsPerPage;
-    let keywordResults;
+    let searchResults;
 
     const descendingSortedItems = data
       .slice(indexOfFirstItem, indexOfLastItem)
@@ -32,7 +33,7 @@ export default function Table() {
       .sort((a, b) => a.version - b.version);
 
     if (searchInput) {
-      keywordResults = data
+      searchResults = data
         .filter((item) => {
           const values = Object.values(item);
           return values.some((value) =>
@@ -42,12 +43,20 @@ export default function Table() {
         .sort((a, b) => b.version - a.version)
         .slice(indexOfFirstItem, indexOfLastItem);
 
-      setCurrentItems(keywordResults);
+      setSearchResults(
+        data.filter((item) => {
+          const values = Object.values(item);
+          return values.some((value) =>
+            value.toString().toLowerCase().includes(searchInput.toLowerCase())
+          );
+        })
+      );
+      setCurrentItems(searchResults);
     } else setCurrentItems(descendingSortedItems);
 
     if (sorted) {
-      if (keywordResults) {
-        const ascendingSearchItems = keywordResults.sort(
+      if (searchResults) {
+        const ascendingSearchItems = searchResults.sort(
           (a, b) => a.version - b.version
         );
         setCurrentItems(ascendingSearchItems);
@@ -214,7 +223,7 @@ export default function Table() {
           </Styled.Wrapper>
           <Pagination
             resultsPerPage={resultsPerPage}
-            totalItems={data.length}
+            totalItems={searchInput ? searchResults.length : data.length}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
