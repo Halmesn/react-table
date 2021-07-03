@@ -34,6 +34,24 @@ export const Wrapper = styled.div`
     border-radius: 0.5rem;
     cursor: pointer;
   }
+
+  &.pagination {
+    font-size: 1.5rem;
+  }
+
+  &.results-per-page {
+    display: flex;
+
+    select {
+      margin-left: 1rem;
+      background: #e5e5e5;
+      border: 0;
+      font-weight: bold;
+      font-size: 1.2rem;
+      padding: 0.3rem;
+      border-radius: 0.5rem;
+    }
+  }
 `;
 
 export const SearchBar = styled.div`
@@ -73,6 +91,7 @@ export const Table = styled.table`
   font-size: 1.5rem;
   border: 1px solid #d3d3d3;
   border-collapse: collapse;
+  margin-bottom: 1rem;
 
   .actions {
     text-align: right;
@@ -88,6 +107,34 @@ export const TableHeader = styled.th`
     width: 1.3rem;
     height: 1.3rem;
     transform: translateY(0.2rem);
+  }
+
+  &.doctype {
+    svg {
+      width: 1.5rem;
+      height: 1.5rem;
+      transform: translate(0.3rem, 0.3rem);
+    }
+  }
+
+  &.checkbox {
+    input {
+      transform: translateY(0.2rem);
+    }
+  }
+
+  &.version {
+    cursor: pointer;
+
+    ::after {
+      content: '';
+      border-style: solid;
+      border-width: 0.5rem 0.5rem 0 0.5rem;
+      border-color: black transparent transparent transparent;
+      display: inline-block;
+      margin-left: 0.5rem;
+      margin-bottom: 0.1rem;
+    }
   }
 `;
 
@@ -121,6 +168,12 @@ export const TableCell = styled.td`
     }
     .svg {
       margin-left: 0.5rem;
+    }
+  }
+
+  &.checkbox {
+    input {
+      transform: translateY(0.2rem);
     }
   }
 `;
