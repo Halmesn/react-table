@@ -117,6 +117,43 @@ export const TableHeader = styled.th`
       height: 1.5rem;
       transform: translate(0.3rem, 0.3rem);
     }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      cursor: pointer;
+
+      :hover {
+        .tooltiptext {
+          visibility: visible;
+        }
+      }
+
+      .tooltiptext {
+        visibility: hidden;
+        width: 19rem;
+        background-color: #e5e5e5;
+        color: black;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 120%;
+        left: -8.5rem;
+
+        ::after {
+          content: '';
+          position: absolute;
+          top: 100%;
+          left: 50%;
+          margin-left: -5px;
+          border-width: 5px;
+          border-style: solid;
+          border-color: #e5e5e5 transparent transparent transparent;
+        }
+      }
+    }
   }
 
   &.checkbox {

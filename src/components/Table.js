@@ -195,7 +195,13 @@ export default function Table() {
               <Styled.TableHeader>Status</Styled.TableHeader>
               <Styled.TableHeader className="doctype">
                 Document Type
-                <Info />
+                <div className="tooltip">
+                  <span className="tooltiptext">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Deleniti, impedit tenetur!
+                  </span>
+                  <Info />
+                </div>
               </Styled.TableHeader>
               <Styled.TableHeader>Date Created</Styled.TableHeader>
               <Styled.TableHeader className="actions">
