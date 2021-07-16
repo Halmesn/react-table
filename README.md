@@ -3,7 +3,7 @@
 
 ## 📚 React test
 
-**Challenge: **
+**Challenge:**
 
 <div align="center">
     <img alt="test requirements" src="https://github.com/Halmesn/react-table/blob/main/public/test%20requirements.png" />
