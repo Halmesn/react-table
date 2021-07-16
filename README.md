@@ -1,17 +1,15 @@
-<h1 align="center"><a href="https://react-table-test.vercel.app/">React table</a></h1>
-<h3 align="center">A code test I did.</h3>
-
-<div align="center">
-    <img alt="Project screenshot" src="https://github.com/Halmesn/react-table/blob/main/public/my%20implement.png" />
-</div>
+<h1 align="center">React table</h1>
+<h3 align="center">An interview code test</h3>
 
 ## 📚 React test
 
-**Challenge: .**
+**Challenge: **
 
 <div align="center">
     <img alt="test requirements" src="https://github.com/Halmesn/react-table/blob/main/public/test%20requirements.png" />
 </div>
+
+</br>
 
 **my solution:**
 
